@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+{% if error %}
+    <div style="text-align: center;"><h1>{{ error }}</h1></div>
+
+
+{% else %}
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+        {%  for result in results %}
+            <div class="col-md-3 d-flex align-items-stretch">
+              <div class="card mb-4 box-shadow">
+                  <a href="{{ result.source }}" target="_blank" class="button disable">
+                <img class="card-img-top" src="{{result.image}}" alt="Card image cap">
+                  <h6 class="card-title disabled">{{result.title}}</h6>
+                <div class="card-body">
+                  <p class="card-text disabled">Missing {{result.missing_count}} ingredient(s).</p>
+                </div>
+                  </a>
+              </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endif %}
+{%  endblock %}

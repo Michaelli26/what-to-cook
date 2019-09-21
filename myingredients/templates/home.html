@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main role="main" class="inner cover">
+    <h1 class="cover-heading">Let's cook!</h1>
+
+      <form action="{% url 'recipes' %}" method="POST">
+          {% csrf_token %}
+  <div class="form-group">
+    <textarea class="form-control" name ="ingredients" required oninput="auto_grow(this)" id="ingredients" placeholder="Ingredients you have separated by a comma e.g. chicken breast, rice, etc." ></textarea>
+  </div>
+        <br/>
+<!--
+          <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="restrictions" value="Vegetarian">
+  <label class="form-check-label" for="inlineCheckbox1">Vegetarian</label>
+</div>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="restrictions" value="Vegan">
+  <label class="form-check-label" for="inlineCheckbox2">Vegan</label>
+</div>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="restrictions" value="Peanuts">
+  <label class="form-check-label" for="inlineCheckbox3">Peanut Free</label>
+</div>
+
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="restrictions" value="Tree Nuts">
+  <label class="form-check-label" for="inlineCheckbox1">Tree Nut Free</label>
+</div>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="restrictions" value="Alcohol-free">
+  <label class="form-check-label" for="inlineCheckbox2">Alcohol Free</label>
+</div>
+
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" name="restrictions" value="Sugar-conscious">
+  <label class="form-check-label" for="inlineCheckbox3">Low Sugar</label>
+</div>
+-->
+
+                  <br/>
+          <br/>
+          <input type="submit" value = "Submit!" class="btn btn-secondary btn-lg"></input>
+</form>
+
+  </main>
+
+{% endblock %}
