@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
+from django.shortcuts import render, redirect
 import requests, os
 from .models import Recipe
+
+
 # Create your views here.
 
 
@@ -17,8 +20,8 @@ def recipes(request):
         for index in range(len(pantry)):
             pantry[index] = pantry[index].strip()
         response = requests.get('https://api.edamam.com/search',
-                                params={'q': f"{' '.join(pantry)}", 'app_id': app_id, 'health':restrictions,
-                                        'app_key': app_key , 'to': 100})
+                                params={'q': f"{' '.join(pantry)}", 'app_id': app_id, 'health': restrictions,
+                                        'app_key': app_key, 'to': 100})
         try:
             response.raise_for_status()
         except requests.exceptions.RequestException:
@@ -36,7 +39,7 @@ def recipes(request):
                     if ingredient in ingredient_line and count not in stocked_index:
                         stocked_index.append(count)
                         break
-           
+
             needed_ingredients = remove_stocked_items(all_ingredients, stocked_index)
             # set recipe model attributes
             recipe = Recipe()
@@ -45,7 +48,7 @@ def recipes(request):
             results.append(recipe)
 
         # results = Recipe.objects.order_by('missing_count')
-        results = sorted(results, key = lambda x:x.missing_count)
+        results = sorted(results, key=lambda x: x.missing_count)
 
         return render(request, 'recipes/recipes.html', {'results': results})
 
@@ -68,3 +71,22 @@ def remove_stocked_items(total, have):
     for index in sorted(have, reverse=True):
         del total[index]
     return total
+
+
+def add(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        image = request.POST['image']
+        source = request.POST['source']
+        user = request.user
+        try:
+            recipe = Recipe.objects.get(image=image, title=title, source=source)
+        except ObjectDoesNotExist:
+            recipe = Recipe.objects.create(image=image, title=title, source=source)
+        finally:
+            recipe.users.add(user)  # won't do anything if current user is already in the query set
+            recipe.save()
+
+        return redirect('recipes')
+    else:
+        return render(request, 'home.html')

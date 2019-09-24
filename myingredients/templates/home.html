@@ -2,8 +2,18 @@
 
 {% block content %}
 
+
+
+
+
 <main role="main" class="inner cover">
-    <h1 class="cover-heading">Let's cook!</h1>
+    {% if login %}
+    <h1 class="cover-heading">{{ login }} Let's cook!</h1>
+        {% else %}
+        <h1 class="cover-heading">Let's cook!</h1>
+        <h8 class="cover-heading">Sign in to save recipes</h8>
+
+    {% endif %}
 
       <form action="{% url 'recipes' %}" method="POST">
           {% csrf_token %}

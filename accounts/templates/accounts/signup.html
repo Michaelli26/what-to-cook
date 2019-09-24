@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Sign up</h1>
+    <br/>
+    <br/>
+    <form class="was-validated" action="{% url 'signup' %}" method="POST">
+     {% csrf_token %}
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <input type="text" class="form-control is-invalid" name="firstname" id="firstname" placeholder="First name" required>
+
+    </div>
+    <div class="col-md-4 mb-3">
+      <input type="text" class="form-control is-invalid"  name="lastname" id="lastname" placeholder="Last name" required>
+
+    </div>
+    <div class="col-md-4 mb-3 ">
+      <div class="input-group">
+        <input type="text" class="form-control is-invalid" name ="username" id="username" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+      </div>
+    </div>
+  </div>
+  <div class="form-row justify-content-center align-items-center">
+    <div class="col-md-3">
+      <input type="password" class="form-control is-invalid" name="password" id="password" placeholder="Password" required>
+
+    </div>
+    <div class="col-md-3">
+      <input type="password" class="form-control is-invalid" name="verifypass" id="verifypass" placeholder="Verify password" required>
+    </div>
+  </div>
+    </br>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+{% endblock %}

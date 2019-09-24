@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9b962d0b-119a-45d6-b987-37fea46576ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myingredients/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myingredients/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myingredients/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myingredients/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipes/templates/recipes/recipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/templates/recipes/recipes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +99,7 @@
       <workItem from="1568744333942" duration="96240000" />
       <workItem from="1569041351969" duration="4585000" />
       <workItem from="1569046258583" duration="9126000" />
-      <workItem from="1569092844036" duration="4571000" />
+      <workItem from="1569092844036" duration="56054000" />
     </task>
     <servers />
   </component>

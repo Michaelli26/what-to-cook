@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-{% block content%}
 
+{% block content%}
+{% load save_recipe %}
 
 {% if error %}
     <div style="text-align: center;"><h1>{{ error }}</h1></div>
@@ -13,13 +14,27 @@
         {%  for result in results %}
             <div class="col-md-3 d-flex align-items-stretch">
               <div class="card mb-4 box-shadow">
-                  <a href="{{ result.source }}" target="_blank" class="button disable">
                 <img class="card-img-top" src="{{result.image}}" alt="Card image cap">
                   <h6 class="card-title disabled">{{result.title}}</h6>
                 <div class="card-body">
                   <p class="card-text disabled">Missing {{result.missing_count}} ingredient(s).</p>
+                    <div class="btn-group">
+                    <form action="{{result.source}}" target="_blank">
+                        {% csrf_token %}
+                  <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
+                    </form>
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'add' %}" id="save_recipe" method="POST">
+                            {% csrf_token %}
+                                <input type="hidden" name="image" value="{{ result.image }}">
+                                <input type="hidden" name="title" value="{{ result.title }}">
+                                <input type="hidden" name="source" value="{{ result.source }}">
+
+                  <button type="submit" name="recipe" onclick ="alert('Saved')" class="btn btn-sm btn-outline-secondary">Save</button>
+                            </form>
+                        {% endif %}
+                    </div>
                 </div>
-                  </a>
               </div>
             </div>
         {% endfor %}

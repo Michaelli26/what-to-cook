@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -6,11 +8,19 @@ from django.db import models
 class Recipe(models.Model):
     image = models.URLField()
     title = models.CharField(max_length=200)
-    missing_count = models.IntegerField()
+    missing_count = models.IntegerField(null=True, blank=True)
     source = models.URLField()
+    users = models.ManyToManyField(User)
 
     def set_fields(self, hit, need):
         self.image = hit['recipe']['image']
         self.missing_count = need
         self.source = hit['recipe']['url']
         self.title = hit['recipe']['label']
+
+    def save_model(self, account):
+        #self.save() # must save the model instance before we can relate it to a user
+        self.users.add(account)
+        self.save()
+
+    # delete function
