@@ -1,10 +1,9 @@
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 import requests, os
 from .models import Recipe
-
-
-# Create your views here.
+from django.views.decorators.csrf import csrf_protect
 
 
 def recipes(request):
@@ -30,7 +29,6 @@ def recipes(request):
         # determines how many ingredients required in the recipe we are missing
         pantry.extend(['salt', 'water', 'black pepper'])
         for hit in response.json()['hits']:
-            # missing = len(hit['recipe']['ingredients'])  # worst case scenario, need all the ingredients
             all_ingredients = get_ingredients(hit['recipe']['ingredients'])
             all_ingredients = lower_case(all_ingredients)
             stocked_index = []
@@ -44,10 +42,8 @@ def recipes(request):
             # set recipe model attributes
             recipe = Recipe()
             recipe.set_fields(hit, len(needed_ingredients))
-            # recipe.set_fields(hit, missing)
             results.append(recipe)
 
-        # results = Recipe.objects.order_by('missing_count')
         results = sorted(results, key=lambda x: x.missing_count)
 
         return render(request, 'recipes/recipes.html', {'results': results})
@@ -73,8 +69,13 @@ def remove_stocked_items(total, have):
     return total
 
 
+@csrf_protect
 def add(request):
     if request.method == 'POST':
+        '''title = request.POST['title']
+        image = request.POST['image']
+        source = request.POST['source']
+        '''
         title = request.POST['title']
         image = request.POST['image']
         source = request.POST['source']
@@ -86,7 +87,7 @@ def add(request):
         finally:
             recipe.users.add(user)  # won't do anything if current user is already in the query set
             recipe.save()
-
-        return redirect('recipes')
+        same_url = request.POST.get('next', '/')
+        return redirect('/accounts/myrecipes/')
     else:
-        return render(request, 'home.html')
+        return JsonResponse({'success': False})

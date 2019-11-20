@@ -8,6 +8,9 @@
 
 
 {% else %}
+    {% block title %}
+
+    {% endblock %}
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row">
@@ -17,20 +20,29 @@
                 <img class="card-img-top" src="{{result.image}}" alt="Card image cap">
                   <h6 class="card-title disabled">{{result.title}}</h6>
                 <div class="card-body">
+                {% if request.get_full_path == "/recipes/" %}
                   <p class="card-text disabled">Missing {{result.missing_count}} ingredient(s).</p>
+                {% endif %}
                     <div class="btn-group">
                     <form action="{{result.source}}" target="_blank">
                         {% csrf_token %}
                   <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
                     </form>
-                        {% if user.is_authenticated %}
-                            <form action="{% url 'add' %}" id="save_recipe" method="POST">
+                        {% if user.is_authenticated and request.get_full_path == "/recipes/"%}
+                            <form action="{% url 'add' %}" id="add-form" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
-                                <input type="hidden" name="image" value="{{ result.image }}">
-                                <input type="hidden" name="title" value="{{ result.title }}">
-                                <input type="hidden" name="source" value="{{ result.source }}">
+                                <input type="hidden" id="image" name="image" value="{{ result.image }}">
+                                <input type="hidden" id="title" name="title" value="{{ result.title }}">
+                                <input type="hidden" id="source" name="source" value="{{ result.source }}">
 
-                  <button type="submit" name="recipe" onclick ="alert('Saved')" class="btn btn-sm btn-outline-secondary">Save</button>
+                  <button type="submit" name="recipe" id="save_button" class="btn btn-sm btn-outline-secondary">Save</button>
+                            </form>
+                            {% elif user.is_authenticated and request.get_full_path == "/accounts/myrecipes/" %}
+                            <form action="{% url 'delete' %}" id="delete-form" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" id="pk" name="pk" value="{{ result.pk }}">
+                                <input type="hidden" name="next" value="{{ request.path }}">
+                                <button type="submit" name="recipe" id="delete" class="btn btn-sm btn-outline-secondary">Delete</button>
                             </form>
                         {% endif %}
                     </div>
@@ -42,3 +54,34 @@
     </div>
 {% endif %}
 {%  endblock %}
+
+{% block javascript %}
+
+  <script type="text/javascript">
+
+
+  $(document).ready(function() {
+  $(document).on("click","save_button", function(e) {
+        e.preventDefault()
+        alert("Saved Recipe");
+        console.log( "form submitted");
+        console.log(e.cancelable)
+        $.ajax({
+
+            type:'POST',
+            async: 'false',
+            cache: 'false',
+            url: $('form').attr('action'),
+            data:$(this).serializeArray()
+
+
+            success:function(){
+                alert("Saved Recipe")
+            }
+        })
+      return false;
+    })
+  })
+
+  </script>
+{% endblock %}

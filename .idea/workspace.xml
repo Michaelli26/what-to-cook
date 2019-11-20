@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b962d0b-119a-45d6-b987-37fea46576ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/michael.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/myrecipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/myrecipes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myingredients/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myingredients/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myingredients/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myingredients/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipes/templates/recipes/recipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/templates/recipes/recipes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recipes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/views.py" afterDir="false" />
@@ -30,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myingredientsvenv/bin/python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -40,12 +41,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/myingredients" />
+      <recent name="$PROJECT_DIR$/recipes" />
       <recent name="$PROJECT_DIR$/recipes/templates/recipes" />
       <recent name="$PROJECT_DIR$/recipes/templates" />
       <recent name="$PROJECT_DIR$/recipes/templates/" />
-      <recent name="$PROJECT_DIR$/myingredients/templates" />
-      <recent name="$PROJECT_DIR$/myingredients/templates/myingredients" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -60,7 +64,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.practice">
+    <configuration name="practice" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="myingredients-project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/practice.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="myingredients-project" type="Python.DjangoServer" factoryName="Django server">
       <module name="myingredients-project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -84,6 +110,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.practice" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -99,7 +130,16 @@
       <workItem from="1568744333942" duration="96240000" />
       <workItem from="1569041351969" duration="4585000" />
       <workItem from="1569046258583" duration="9126000" />
-      <workItem from="1569092844036" duration="56054000" />
+      <workItem from="1569092844036" duration="81180000" />
+      <workItem from="1569397380925" duration="679000" />
+      <workItem from="1569432390179" duration="11684000" />
+      <workItem from="1569790569556" duration="45000" />
+      <workItem from="1569791373269" duration="7664000" />
+      <workItem from="1570068382772" duration="3131000" />
+      <workItem from="1570488250544" duration="676000" />
+      <workItem from="1570554809956" duration="7000" />
+      <workItem from="1570575057000" duration="9270000" />
+      <workItem from="1574206761461" duration="2025000" />
     </task>
     <servers />
   </component>
@@ -118,5 +158,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/myingredients_project$practice.coverage" NAME="practice Coverage Results" MODIFIED="1569458606506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

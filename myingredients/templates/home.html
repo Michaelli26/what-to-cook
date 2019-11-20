@@ -7,8 +7,8 @@
 
 
 <main role="main" class="inner cover">
-    {% if login %}
-    <h1 class="cover-heading">{{ login }} Let's cook!</h1>
+    {% if user.is_authenticated %}
+    <h1 class="cover-heading">Welcome {{ user }}. Let's cook!</h1>
         {% else %}
         <h1 class="cover-heading">Let's cook!</h1>
         <h8 class="cover-heading">Sign in to save recipes</h8>

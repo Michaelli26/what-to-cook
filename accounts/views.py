@@ -6,8 +6,6 @@ from django.contrib.auth import login as django_login
 from django.contrib.auth.decorators import login_required
 from recipes.models import Recipe
 
-# Create your views here.
-
 
 def signup(request):
     if request.method == 'POST':
@@ -34,7 +32,7 @@ def login(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             django_login(request, user)
-            return render(request, 'home.html', {'login': f'Welcome {username.capitalize()}.'})
+            return render(request, 'home.html')
         else:
             return render(request, 'accounts/login.html', {'error': 'Invalid login.'})
     else:
@@ -54,3 +52,14 @@ def my_recipes(request):
     saved_recipes = Recipe.objects.filter(users=current_user)
     return render(request, 'accounts/myrecipes.html', {'results': saved_recipes})
 
+
+def delete(request):
+    if request.method == 'POST':
+        user = request.user
+        recipe_pk = request.POST['pk']
+        recipe = Recipe.objects.get(pk=recipe_pk)
+        recipe.users.remove(user)
+        if not recipe.users.exists():
+            recipe.delete()
+        same_url = request.POST.get('next', '/')
+    return redirect(same_url)
