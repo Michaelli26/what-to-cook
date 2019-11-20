@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b962d0b-119a-45d6-b987-37fea46576ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/michael.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/myrecipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/myrecipes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myingredients/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myingredients/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myingredients/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/myingredients/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes/templates/recipes/recipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/templates/recipes/recipes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/recipes/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +131,9 @@
       <workItem from="1570488250544" duration="676000" />
       <workItem from="1570554809956" duration="7000" />
       <workItem from="1570575057000" duration="9270000" />
-      <workItem from="1574206761461" duration="2025000" />
+      <workItem from="1574206761461" duration="12415000" />
+      <workItem from="1574232889653" duration="706000" />
+      <workItem from="1574277232958" duration="2771000" />
     </task>
     <servers />
   </component>
