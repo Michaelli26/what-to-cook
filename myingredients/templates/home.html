@@ -2,24 +2,38 @@
 
 {% block content %}
 
+<head>
+
+  <!-- Css Files-->
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/css/bootstrap-tokenfield.min.css">
 
 
+  <!-- JS Files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tokenfield/0.12.0/bootstrap-tokenfield.js"></script>
 
 
+</head>
 <main role="main" class="inner cover">
+
     {% if user.is_authenticated %}
     <h1 class="cover-heading">Welcome {{ user }}. Let's cook!</h1>
         {% else %}
         <h1 class="cover-heading">Let's cook!</h1>
         <h8 class="cover-heading">Sign in to save recipes</h8>
+        <br/>
+                <br/>
 
     {% endif %}
 
       <form action="{% url 'recipes' %}" method="POST">
           {% csrf_token %}
-  <div class="form-group">
-    <textarea class="form-control" name ="ingredients" required oninput="auto_grow(this)" id="ingredients" placeholder="Ingredients you have separated by a comma e.g. chicken breast, rice, etc." ></textarea>
-  </div>
+
+<div class="container">
+  <input type="text" class="form-control" name ="ingredients" id="tokenfield" placeholder="Type an ingredient and hit tab or enter (no duplicates)" />
+</div>
         <br/>
 <!--
           <div class="form-check form-check-inline">
@@ -53,11 +67,30 @@
 </div>
 -->
 
-                  <br/>
-          <br/>
-          <input type="submit" value = "Submit!" class="btn btn-secondary btn-lg"></input>
+
+          <input type="submit" class="btn btn-secondary btn-lg"/>
 </form>
 
   </main>
+
+
+
+<script type="text/javascript">
+$('#tokenfield')
+
+
+.on('tokenfield:createtoken', function (event) {
+    var existingTokens = this.value.split(',');
+	$.each(existingTokens, function(index, token) {
+		if (token.trim().toLowerCase() === event.attrs.value.trim().toLowerCase()) {
+            event.preventDefault();
+        }
+	});
+})
+
+    .tokenfield()
+  </script>
+
+
 
 {% endblock %}

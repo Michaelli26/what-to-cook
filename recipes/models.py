@@ -19,8 +19,5 @@ class Recipe(models.Model):
         self.title = hit['recipe']['label']
 
     def save_model(self, account):
-        #self.save() # must save the model instance before we can relate it to a user
         self.users.add(account)
         self.save()
-
-    # delete function
