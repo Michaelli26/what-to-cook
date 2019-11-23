@@ -57,31 +57,5 @@
 
 {% block javascript %}
 
-  <script type="text/javascript">
 
-
-  $(document).ready(function() {
-  $(document).on("click","save_button", function(e) {
-        e.preventDefault()
-        alert("Saved Recipe");
-        console.log( "form submitted");
-        console.log(e.cancelable)
-        $.ajax({
-
-            type:'POST',
-            async: 'false',
-            cache: 'false',
-            url: $('form').attr('action'),
-            data:$(this).serializeArray()
-
-
-            success:function(){
-                alert("Saved Recipe")
-            }
-        })
-      return false;
-    })
-  })
-
-  </script>
 {% endblock %}
