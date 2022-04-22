@@ -3,7 +3,7 @@ chardet==3.0.4
 colorama==0.3.9
 configobj==5.0.6
 dj-database-url==0.5.0
-Django==2.2.5
+Django==2.2.28
 django-heroku==0.3.1
 docutils==0.15.2
 gunicorn==19.9.0
